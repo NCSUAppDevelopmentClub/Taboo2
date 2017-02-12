@@ -21,15 +21,6 @@
         android:layout_marginEnd="13dp"
         android:id="@+id/btnNext" />
 
-    <Button
-        android:text="||"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/btnPause" />
-
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -126,13 +117,36 @@
         android:layout_marginTop="56dp" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/word"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
+        android:id="@+id/textView"
+        android:textSize="14sp" />
+
+    <Button
+        android:text="||"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnPause"
+        android:layout_marginTop="36dp"
+        android:layout_below="@+id/timerView"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/timer"
-        android:layout_alignBaseline="@+id/btnPause"
-        android:layout_alignBottom="@+id/btnPause"
-        android:layout_alignLeft="@+id/word"
-        android:layout_alignStart="@+id/word" />
+        android:id="@+id/timerView"
+        android:textSize="36sp"
+        android:textStyle="normal|bold"
+        android:textAllCaps="false"
+        android:textAlignment="textStart"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif" />
 
 </RelativeLayout>

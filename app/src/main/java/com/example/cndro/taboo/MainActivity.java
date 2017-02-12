@@ -13,34 +13,27 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private boolean isPlay;
+    private TextView clock;
+    private static Timer timer;
+
 
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.activity_main);
-
-        new CountDownTimer(30000, 1000) {
-
-            TextView mTextField = (TextView) findViewById(R.id.timer);
-            public void onTick(long millisUntilFinished) {
-                mTextField.setText(String.valueOf(millisUntilFinished / 1000));
-            }
-
-            public void onFinish() {
-                mTextField.setText("0");
-            }
-
-            public void onStop() {
-                
-            }
+        isPlay = false;
+        clock = (TextView) findViewById(R.id.timerView);
+        timer = new Timer(clock);
+        timer.startTimer(30000);
 
 
-        }.start();
+
 
         final Button next =  (Button) findViewById(R.id.btnNext);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Log.d("something", "Clicked");// Perform action on click
+                Log.d("Next", "Clicked");// Perform action on click
             }
             // }
         });
@@ -48,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         final Button prev =  (Button) findViewById(R.id.btnBack);
         prev.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Log.d("something1", "Clicked");// Perform action on click
+                Log.d("Previous", "Clicked");// Perform action on click
             }
             // }
         });
@@ -56,12 +49,34 @@ public class MainActivity extends AppCompatActivity {
         final Button pause =  (Button) findViewById(R.id.btnPause);
         pause.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Log.d("something2", "Clicked");// Perform action on click
+                if(isPlay){
+                    timer.onResume();
+                    pause.setText("||");
+                    Log.d("Play", "Clicked");
+                } else
+                {
+                    timer.onPause();
+                    pause.setText("|>");
+                    Log.d("Pause", "Clicked");
+                }
+
+                isPlay = !isPlay;
+
+                // Perform action on click
+
+
             }
             // }
-        });
 
+
+
+
+        });
     }
+
+
+
+
 
 }
 
