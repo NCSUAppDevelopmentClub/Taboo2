@@ -127,15 +127,6 @@
         android:id="@+id/textView"
         android:textSize="14sp" />
 
-    <Button
-        android:text="||"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnPause"
-        android:layout_marginTop="36dp"
-        android:layout_below="@+id/timerView"
-        android:layout_centerHorizontal="true" />
-
     <TextView
         android:text="TextView"
         android:layout_width="wrap_content"
@@ -145,8 +136,19 @@
         android:textStyle="normal|bold"
         android:textAllCaps="false"
         android:textAlignment="textStart"
+        android:fontFamily="sans-serif"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="sans-serif" />
+        android:layout_toLeftOf="@+id/btnNext"
+        android:layout_toStartOf="@+id/btnNext"
+        android:layout_marginTop="15dp" />
+
+    <Button
+        android:text="||"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnPause"
+        android:layout_alignBottom="@+id/timerView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
