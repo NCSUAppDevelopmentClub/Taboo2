@@ -1,5 +1,7 @@
 package com.example.cndro.taboo;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.widget.TextView;
 
@@ -13,6 +15,7 @@ public class Timer {
     private CountDownTimer timer;
     private TextView clock;
     private long timeLeft;
+    private boolean red;
 
     public Timer(TextView toOutput){
         super();
@@ -20,15 +23,20 @@ public class Timer {
     }
 
     public void startTimer(long timeLength) {
+        red = false;
         timer = new CountDownTimer(timeLength, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 timeLeft = millisUntilFinished;
-                clock.setText(String.format("%02d:%02d",millisUntilFinished/60000,(millisUntilFinished/1000)%60));
+                if(millisUntilFinished <= 11000 && !red){
+                    clock.setTextColor(Color.RED);
+                    red = true;
+                }
+                clock.setText(String.format("%02d",(millisUntilFinished/1000)%60));
             }
 
             public void onFinish() {
-                clock.setText("00:00");
+                clock.setText("00");
                 timeLeft = 0;
             }
 
