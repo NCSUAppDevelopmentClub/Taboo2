@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 boolean clear = true;
+                layout.removeAllViews();
                 for(int i = 0; i < 5; i++){
                     TextView textView = new TextView(MainActivity.this);
                     if(clear) {
